@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+		android:versionCode="3"
+		android:versionName="1.2" 
+		package="com.ridewide.wifitetheronoff">
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    		
+	<application android:label="@string/app_name" android:icon="@drawable/icon">
+		<receiver android:name="com.ridewide.wifitetheronoff.WifiTetherWidget" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+			    <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+				<action android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider" android:resource="@xml/slide_show" />
+		</receiver>
+		<service android:name="com.ridewide.wifitetheronoff.WifiTetherWidget$MyService" android:exported="false">
+			<intent-filter>
+				<action android:name="com.ridewide.wifitetheronoff.ACTION_MY_CLICK" />
+			</intent-filter>
+		</service>
+	</application>
+	<uses-sdk android:minSdkVersion="6" />
+</manifest>

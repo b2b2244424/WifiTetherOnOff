@@ -1,0 +1,34 @@
+package com.ridewide.wifitetheronoff;
+
+import android.util.Log;
+
+public class AppException extends RuntimeException {
+
+	private static final String TAG = "com.ridewide.wifitetheronoff";
+
+	protected AppException() {
+		super();
+	}
+
+	protected AppException(String detailMessage, Throwable throwable) {
+		super(detailMessage, throwable);
+	}
+
+	protected AppException(Throwable throwable) {
+		super(throwable);
+//		if (throwable  instanceof ClassNotFoundException) {
+//			
+//		}
+		throwable.printStackTrace();
+		
+		
+	}
+
+	protected AppException(String detailMessage) {
+		super(detailMessage);
+        Log.e(TAG, " " + detailMessage);
+	}
+
+	private static final long serialVersionUID = 1L;
+
+}
