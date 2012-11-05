@@ -74,8 +74,11 @@ public class WifiTetherWidget extends AppWidgetProvider {
 	        
 	        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.slide_show);
 	        boolean apState = wifiApManager.getWifiApState();
-	        
-	        if (ACTION_MY_CLICK.equals(intent.getAction())) {
+	        String action = intent.getAction();
+	        if (action == null) {
+	        	action = "";
+	        }
+	        if (ACTION_MY_CLICK.equals(action)) {
 	        	// click event
 		        if (apState) {
 			    	if (DEBUG) Log.d(TAG, "MyService#onStart() click event. start disable");
